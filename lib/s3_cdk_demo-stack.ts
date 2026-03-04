@@ -19,6 +19,12 @@ export class S3CdkDemoStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY, // safe for dev
       autoDeleteObjects: true, // safe for dev
     });
+    new s3.Bucket(this, 'Extracts', {
+      bucketName: 'downstream-extracts-out', // must be globally unique
+      versioned: true,
+      removalPolicy: cdk.RemovalPolicy.DESTROY, // safe for dev
+      autoDeleteObjects: true, // safe for dev
+    });
 
   }
 }
